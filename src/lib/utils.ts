@@ -19,35 +19,12 @@ export function formatNumber(num: number): string {
 }
 
 /**
- * Debounce function to limit how often a function is called
- * @param func Function to debounce
- * @param wait Wait time in milliseconds
- * @returns Debounced function
- */
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null;
-  
-  return function(...args: Parameters<T>) {
-    const later = () => {
-      timeout = null;
-      func(...args);
-    };
-    
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-/**
  * Throttle function to limit how often a function is called
  * @param func Function to throttle
  * @param limit Limit time in milliseconds
  * @returns Throttled function
  */
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {

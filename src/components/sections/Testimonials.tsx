@@ -77,6 +77,7 @@ export default function Testimonials() {
     return () => {
       stopAutoPlay();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPaused, isAnimating]);
   
   // Navigate to previous testimonial
