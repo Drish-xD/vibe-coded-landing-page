@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { useForm, type SubmitHandler } from 'react-hook-form';
+import { FieldValues, useForm, type SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 
 // Form schema for the loan application
@@ -41,7 +41,7 @@ interface FormState {
   errorMessage: string | null;
 }
 
-export function useFormSubmit<T>({ 
+export function useFormSubmit<T extends FieldValues>({ 
   schema, 
   onSuccess, 
   onError 
